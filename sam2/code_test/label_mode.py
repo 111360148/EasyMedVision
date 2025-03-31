@@ -581,9 +581,13 @@ elif st.session_state.page == 'select_drag':
     scaled_bottom_right_y = 0
 
     if "predictor" not in st.session_state:
-        sam2_checkpoint = "../checkpoints/sam2.1_hiera_large.pt"
-        model_cfg = "configs/sam2.1/sam2.1_hiera_l.yaml"
-        st.session_state.predictor = build_sam2_video_predictor(model_cfg, sam2_checkpoint, device=device)
+        checkpoint_dir = os.path.join(os.getcwd(), "..", "sam2","checkpoints", "sam2.1_hiera_large.pt")
+        model_cfg = os.path.join(os.getcwd(), "..", "sam2","sam2", "configs", "sam2.1", "sam2.1_hiera_l.yaml")
+
+        print(f"Checkpoint path: {checkpoint_dir}")
+        print(f"Model config path: {model_cfg}")
+
+        st.session_state.predictor = build_sam2_video_predictor(model_cfg, checkpoint_dir, device=device)
         
         if file_type in ["image/jpeg", "image/png", "image/jpg"]:
             video_path = os.path.join(st.session_state.base_path, st.session_state.analysis_name, "image")
@@ -802,9 +806,13 @@ elif st.session_state.page == 'select_both':
     scaled_cx = 0
 
     if "predictor" not in st.session_state:
-        sam2_checkpoint = "../checkpoints/sam2.1_hiera_large.pt"
-        model_cfg = "configs/sam2.1/sam2.1_hiera_l.yaml"
-        st.session_state.predictor = build_sam2_video_predictor(model_cfg, sam2_checkpoint, device=device)
+        checkpoint_dir = os.path.join(os.getcwd(), "..", "sam2","checkpoints", "sam2.1_hiera_large.pt")
+        model_cfg = os.path.join(os.getcwd(), "..", "sam2","sam2", "configs", "sam2.1", "sam2.1_hiera_l.yaml")
+
+        print(f"Checkpoint path: {checkpoint_dir}")
+        print(f"Model config path: {model_cfg}")
+
+        st.session_state.predictor = build_sam2_video_predictor(model_cfg, checkpoint_dir, device=device)
         
         if file_type in ["image/jpeg", "image/png", "image/jpg"]:
             video_path = os.path.join(st.session_state.base_path, st.session_state.analysis_name, "image")
@@ -1053,9 +1061,13 @@ elif st.session_state.page == 'select_manual':
     top = 0
 
     if "predictor" not in st.session_state:
-        sam2_checkpoint = "../checkpoints/sam2.1_hiera_large.pt"
-        model_cfg = "configs/sam2.1/sam2.1_hiera_l.yaml"
-        st.session_state.predictor = build_sam2_video_predictor(model_cfg, sam2_checkpoint, device=device)
+        checkpoint_dir = os.path.join(os.getcwd(), "..", "sam2","checkpoints", "sam2.1_hiera_large.pt")
+        model_cfg = os.path.join(os.getcwd(), "..", "sam2","sam2", "configs", "sam2.1", "sam2.1_hiera_l.yaml")
+
+        print(f"Checkpoint path: {checkpoint_dir}")
+        print(f"Model config path: {model_cfg}")
+
+        st.session_state.predictor = build_sam2_video_predictor(model_cfg, checkpoint_dir, device=device)
         
         if file_type in ["image/jpeg", "image/png", "image/jpg"]:
             video_path = os.path.join(st.session_state.base_path, st.session_state.analysis_name, "image")
